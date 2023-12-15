@@ -1,0 +1,17 @@
+/* Estilos para mejorar la apariencia (opcional) */
+user-list-component {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}

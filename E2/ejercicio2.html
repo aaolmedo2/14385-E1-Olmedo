@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comunicación entre Componentes</title>
+    <style>
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <emisor-component></emisor-component>
+      <receptor-component></receptor-component>
+    </div>
+
+    <script>
+      // Componente emisor
+      class EmisorComponent extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({ mode: "open" });
+
+          const boton = document.createElement("button");
+          boton.textContent = "Enviar Mensaje";
+
+          boton.addEventListener("click", () => {
+            const evento = new CustomEvent("mensajeEnviado", {
+              detail: "¡Hola desde Emisor!",
+            });
+            this.dispatchEvent(evento);
+          });
+
+          this.shadowRoot.appendChild(boton);
+        }
+      }
+
+      customElements.define("emisor-component", EmisorComponent);
+
+      // Componente receptor
+      class ReceptorComponent extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({ mode: "open" });
+
+          document.addEventListener("mensajeEnviado", (evento) => {
+            alert(`Mensaje recibido: ${evento.detail}`);
+          });
+        }
+      }
+
+      customElements.define("receptor-component", ReceptorComponent);
+    </script>
+  </body>
+</html>

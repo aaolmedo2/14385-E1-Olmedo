@@ -1,0 +1,18 @@
+/* Estilos para mejorar la apariencia (opcional) */
+contenedor-component {
+    display: block;
+    border: 1px solid yellow;
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+}
+
+.encabezado {
+    background-color: red;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.cuerpo {
+    padding: 8px;
+}
