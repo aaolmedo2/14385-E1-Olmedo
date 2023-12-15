@@ -1,4 +1,3 @@
-// saludo-component.js
 class SaludoComponent extends HTMLElement {
     constructor() {
         super();

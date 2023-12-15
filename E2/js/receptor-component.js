@@ -1,19 +1,12 @@
-
 class ReceptorComponent extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     connectedCallback() {
-        // Escuchamos el evento personalizado
-        this.addEventListener("mensaje", this.mostrarMensaje);
-    }
-
-    mostrarMensaje(event) {
-        // Mostramos el mensaje recibido
-        document.getElementById("mensaje").textContent = event.detail;
+        // Escuchar el evento personalizado 'mensajeEnviado'
+        document.addEventListener('mensajeEnviado', (evento) => {
+            // Mostrar el mensaje recibido en un alert
+            alert(`Mensaje recibido: ${evento.detail.mensaje}`);
+        });
     }
 }
 
-customElements.define("receptor-component", ReceptorComponent);
-
+// Registrar el componente receptor
+customElements.define('receptor-component', ReceptorComponent);

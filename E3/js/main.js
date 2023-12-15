@@ -1,11 +1,9 @@
-// Componente contenedor
 class ContenedorComponent extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <style>
-        /* Estilos del componente (opcional) */
         :host {
           display: block;
           border: 1px solid #ccc;
